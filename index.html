@@ -919,6 +919,27 @@
                         <textarea class="form-control" placeholder="Mensaje" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <div id="paypal-button-container-P-6XV01885G7266931GNFTRWNI"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AS1MC9Bx35ZQaDtQstjLhWgDH2rGXLVItp6FxBfW1HM0zPFgJFPMiq5ddbcuz3sPXC8zlfrvbyyZynh5&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'blue',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-6XV01885G7266931GNFTRWNI'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-6XV01885G7266931GNFTRWNI'); // Renders the PayPal button
+</script>
                 </form>
             </div>
         </div>
